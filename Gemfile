@@ -11,7 +11,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'puma', '~> 4.1'
 
 # Use Active Model has_secure_password
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

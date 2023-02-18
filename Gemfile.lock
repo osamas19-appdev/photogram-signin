@@ -374,7 +374,7 @@ PLATFORMS
 DEPENDENCIES
   amazing_print
   annotate
-  bcrypt
+  bcrypt (~> 3.1.7)
   better_errors (= 2.6)
   binding_of_caller
   bootsnap (>= 1.4.2)
