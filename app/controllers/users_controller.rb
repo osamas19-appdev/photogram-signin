@@ -61,12 +61,23 @@ class UsersController < ApplicationController
   end
 
   def login
-    #"No one by that name 'round these parts"
-    user.username = params.fetch("input_username")
+    uname = params.fetch("input_username")
+    pwd = params.fetch("input_password")
 
-    user.save
-
-    redirect_to("/users/#{user.username}")
+    user = User.where({ :username => uname }).at(0)
+    if user == nil 
+      redirect_to("/user_sign_in", { :alert => "No one by that name 'round these parts" })
+    else
+      if user.authenticate(pwd)
+        session.store(:user_id, user.id)
+        redirect_to("/", { :notice => "Welcome back, " + user.username + "!"})
+      else 
+        redirect_to("/user_sign_in", { :alert => "Nice try, Sucker!" })
+      end
+    end
   end
-
+  def sign_out
+    reset_session
+    redirect_to("/", { :notice => "See you later!"})
+  end
 end

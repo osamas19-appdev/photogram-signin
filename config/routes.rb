@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get("/user_sign_in", {:controller => "users", :action => "sign_in" })
   post("/user_login", {:controller => "users", :action => "login" })
 
+   #Sign-out
+   get("/user_sign_out", {:controller => "users", :action => "sign_out" })
 
   # READ
   get("/users", {:controller => "users", :action => "index"})
@@ -42,7 +44,7 @@ Rails.application.routes.draw do
   # Comment routes
 
   # CREATE
-  get("/insert_comment_record", { :controller => "comments", :action => "create" })
+  post("/insert_comment_record", { :controller => "comments", :action => "create" })
 
   # DELETE
 
