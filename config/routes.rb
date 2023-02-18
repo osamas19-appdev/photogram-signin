@@ -6,6 +6,12 @@ Rails.application.routes.draw do
 
   # CREATE
   get("/insert_user_record", {:controller => "users", :action => "create" })
+  get("/user_sign_up", {:controller => "users", :action => "sign_up" })
+
+  #Sign-in
+  get("/user_sign_in", {:controller => "users", :action => "sign_in" })
+  post("/user_login", {:controller => "users", :action => "login" })
+
 
   # READ
   get("/users", {:controller => "users", :action => "index"})

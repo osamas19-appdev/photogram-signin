@@ -43,4 +43,24 @@ class UsersController < ApplicationController
     redirect_to("/users")
   end
 
+  def sign_up
+
+    render({ :template => "users/sign_up.html.erb" })
+  end
+
+  def sign_in
+
+    render({ :template => "users/sign_in.html.erb" })
+  end
+
+  def login
+    user = User.new
+
+    user.username = params.fetch("input_username")
+
+    user.save
+
+    redirect_to("/users/#{user.username}")
+  end
+
 end
